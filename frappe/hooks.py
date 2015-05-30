@@ -67,6 +67,15 @@ doc_events = {
 	},
 	"Website Route Permission": {
 		"on_update": "frappe.website.doctype.website_group.website_group.clear_cache_on_doc_event"
+	},
+	"Sales Invoice":{
+		"on_update": "erpnext.setup.doctype.site_master.site_master.success_renewal"
+	},
+	"Feed Back":{
+		"on_update": "erpnext.setup.doctype.site_master.site_master.feedback_submission"
+	},
+	"Support Ticket":{
+		"on_update": "erpnext.setup.doctype.site_master.site_master.ticket_submission"
 	}
 }
 

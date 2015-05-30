@@ -37,7 +37,9 @@ def sync_for(app_name, force=0, sync_everything = False, verbose=False):
 			frappe.db.commit()
 
 			# show progress bar
+			#print "gangadhar"
 			update_progress_bar("Updating {0}".format(app_name), i, l)
+			#print "gangadhar"
 
 		print ""
 

@@ -94,12 +94,13 @@ def handle():
 							doctype, **frappe.local.form_dict)})
 
 				if frappe.local.request.method=="POST":
+					print "in post"
 					data = json.loads(frappe.local.form_dict.data)
 					data.update({
 						"doctype": doctype
 					})
 					frappe.local.response.update({
-						"data": frappe.get_doc(data).insert().as_dict()
+						"data": frappe.get_doc(data).insert(ignore_permissions=True).as_dict()
 					})
 					frappe.db.commit()
 			else:

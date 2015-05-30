@@ -118,7 +118,7 @@ class Database:
 					frappe.log("<<<< query")
 					frappe.log(query)
 					frappe.log(">>>>")
-
+				#frappe.errprint(query)
 				self._cursor.execute(query)
 		except Exception, e:
 			# ignore data definition errors

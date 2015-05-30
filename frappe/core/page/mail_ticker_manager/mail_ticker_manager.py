@@ -10,12 +10,12 @@ def get_children(from_date, to_date):
 	if args['parent'] == 'Users':
 		acc = frappe.db.sql("""select concat('<b>',name,'</b> : ', 
 				email_id__if_administrator) as value, 1 as expandable 
-			from `tabSite Master`""", as_dict=1)
+			from `tabSite Master`""", as_dict=1,debug=1)
 
 	else: 
 		acc	= frappe.db.sql(""" select name as value, 0 as expandable 
 			from `%s`.`tabUser` where name not in ('Administrator', 'Guest') %s """%(get_db_name(get_site_name(args['parent'])), 
-				get_cond(from_date, to_date)), as_dict=1)
+				get_cond(from_date, to_date)), as_dict=1,debug=1)
 
 	return acc
 
